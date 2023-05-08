@@ -10,7 +10,8 @@ import dash_mantine_components as dmc
 import pandas as pd
 import numpy as np
 from plotly.subplots import make_subplots
-import dash_table
+#import dash_table
+from dash import dash_table
 
 #definimos el objeto
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
