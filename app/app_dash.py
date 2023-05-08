@@ -16,7 +16,7 @@ import dash_table
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 #app = dash.Dash(__name__, external_stylesheets=[dbc.themes.SOLAR])
 #se incluye está sentencia para utilizar un servidor no local
-application = app.server
+server = app.server
 from app import cloud_funciones as d_fun
 
 app.layout = html.Div(id = 'parent', children = [
