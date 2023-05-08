@@ -3,7 +3,7 @@ import dash
 from dash import html, dcc
 import plotly.graph_objects as go
 import plotly.express as px
-import cloud_funciones as d_fun
+#import cloud_funciones as d_fun
 from dash.dependencies import Input, Output
 import dash_bootstrap_components as dbc
 import dash_mantine_components as dmc
@@ -17,6 +17,7 @@ app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 #app = dash.Dash(__name__, external_stylesheets=[dbc.themes.SOLAR])
 #se incluye está sentencia para utilizar un servidor no local
 application = app.server
+from app import cloud_funciones as d_fun
 
 app.layout = html.Div(id = 'parent', children = [
     dcc.Location(id='url', refresh=True), 
