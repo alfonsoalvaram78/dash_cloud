@@ -438,7 +438,7 @@ def graph_multi(option, option_2, data_daily_scatter):
     Input(component_id='url', component_property= 'pathname')           
 )
 def update_several_plots(data, relative_pathname):
-    #print(data)
+    print(data)
     cripto_intradia = d_fun.get_data_table('criptomonedas_day')
     cripto_intradia = d_fun.put_cripto_names(cripto_intradia)
     data_dic = {'nombre':data[0], 'Volume':data[1]}
