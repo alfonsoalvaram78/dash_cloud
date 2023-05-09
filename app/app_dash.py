@@ -132,7 +132,7 @@ def global_data(relative_pathname):
     #se carga la información intradia
     d_fun.update_crypto_values_day()
     cripto_intradia = d_fun.get_data_table('criptomonedas_day')
-    print(cripto_intradia)
+    d_fun.print_data(cripto_intradia)
     cripto_intradia = d_fun.put_cripto_names(cripto_intradia)
     cripto_intradia_gb = cripto_intradia[['nombre', 'Volume']].groupby(by=['nombre'])
     cripto_intradia_gb = cripto_intradia_gb['Volume'].mean()
