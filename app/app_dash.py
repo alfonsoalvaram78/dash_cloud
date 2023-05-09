@@ -128,7 +128,7 @@ app.layout = html.Div(id = 'parent', children = [
     Output('intraday-value', 'data'),
     Input('url', 'pathname')
     )
-def global_data(relative_pathname):
+def global_data_intra(relative_pathname):
     #se carga la información intradia
     d_fun.update_crypto_values_day()
     cripto_intradia = d_fun.get_data_table('criptomonedas_day', texto = 'aqui')    
