@@ -165,6 +165,7 @@ def update_crypto_values_history():
             if data.shape[0]>0:
                 data['Date'] = data['Date'].apply(lambda x: x.strftime('%Y-%m-%d') )                
                 cargar_datos('criptomonedas_hystory', data)
+                print(data)
 
 def update_crypto_values_day():
     criptos = get_data_table('cat_criptomonedas')
