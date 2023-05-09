@@ -176,7 +176,7 @@ def update_crypto_values_day():
         else:
             fecha = datos['Date'].max()
             if datetime.datetime.strptime(fecha, '%Y-%m-%d' ).date() != datetime.date.today():
-                print('entro')
+                #print('entro')
                 borrar('criptomonedas_day')
             cargar_datos('criptomonedas_day', data)
 
