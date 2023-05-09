@@ -497,8 +497,7 @@ def update_table_volume(data, relative_pathname):
     Input('url', 'pathname'))
 def display_page(relative_pathname):
     texto = 'Última Actualización {}'.format(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
-    #return html.Div(texto, style={'color': 'gray', 'fontSize': 12} ) 
-    return html.Div(data, style={'color': 'gray', 'fontSize': 12} ) 
+    return html.Div(texto, style={'color': 'gray', 'fontSize': 12} )   
 
 
 ### fin callback
