@@ -121,7 +121,7 @@ def get_data_daily(ticker):
     return stock_data
 
 
-def get_data_table(tabla, campos = [], condiciones = []):
+def get_data_table(tabla, campos = [], condiciones = [], texto = ''):
     conexion = mysql.connector.connect(
         host="bycegytc3os0kmsrpu4c-mysql.services.clever-cloud.com",
         user="uh4br2tei7wx6fvf",
@@ -145,7 +145,9 @@ def get_data_table(tabla, campos = [], condiciones = []):
         nom_col = get_nom_columns(tabla)
         resultados.columns = nom_col
     conexion.close()
-    print(resultados)
+    if texto != '':
+        print(resultados.columns)
+        print(resultados)
     return resultados
 
 def update_crypto_values_history():
