@@ -217,6 +217,3 @@ def put_cripto_names(df):
     data = get_data_table('cat_criptomonedas')
     df = df.merge(data, how = 'left', on = ['ticker'])
     return df
-
-def print_data(data):
-    print(data)
