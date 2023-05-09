@@ -28,7 +28,7 @@ app.layout = html.Div(id = 'parent', children = [
                                             'marginTop':40,'marginBottom':40}),
     #########################
     html.Div([
-        html.P('Fuente Yahoo Finance https://finance.yahoo.com/'),
+        html.P('Fuente Yahoo Finance https://finance.yahoo.com/'),     
          
         ]),
     #########################
@@ -131,8 +131,7 @@ app.layout = html.Div(id = 'parent', children = [
 def global_data(relative_pathname):
     #se carga la información intradia
     d_fun.update_crypto_values_day()
-    cripto_intradia = d_fun.get_data_table('criptomonedas_day')
-    d_fun.print_data(cripto_intradia)
+    cripto_intradia = d_fun.get_data_table('criptomonedas_day')    
     cripto_intradia = d_fun.put_cripto_names(cripto_intradia)
     cripto_intradia_gb = cripto_intradia[['nombre', 'Volume']].groupby(by=['nombre'])
     cripto_intradia_gb = cripto_intradia_gb['Volume'].mean()
@@ -494,10 +493,12 @@ def update_table_volume(data, relative_pathname):
 #######################################
 @app.callback(
     Output('ultima-actualizacion', 'children'),
+    Input(component_id='intraday-value', component_property= 'data'),
     Input('url', 'pathname'))
 def display_page(relative_pathname):
     texto = 'Última Actualización {}'.format(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
-    return html.Div(texto, style={'color': 'gray', 'fontSize': 12} ) 
+    #return html.Div(texto, style={'color': 'gray', 'fontSize': 12} ) 
+    return html.Div(data, style={'color': 'gray', 'fontSize': 12} ) 
 
 
 ### fin callback
