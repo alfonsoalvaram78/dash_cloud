@@ -39,7 +39,7 @@ def get_nom_columns(tabla):
     resultado.columns = ['column_name', 'data_type']
     resultado = resultado['column_name']
     resultado = resultado.tolist()
-    cursor.close()
+    mydb.close()
     return resultado
 
 def cargar_datos(tabla, datos):
@@ -145,6 +145,7 @@ def get_data_table(tabla, campos = [], condiciones = []):
         nom_col = get_nom_columns(tabla)
         resultados.columns = nom_col
     conexion.close()
+    print(resultados)
     return resultados
 
 def update_crypto_values_history():
