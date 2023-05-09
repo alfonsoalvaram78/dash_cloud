@@ -492,8 +492,7 @@ def update_table_volume(data, relative_pathname):
 #######################################
 #######################################
 @app.callback(
-    Output('ultima-actualizacion', 'children'),
-    Input(component_id='intraday-value', component_property= 'data'),
+    Output('ultima-actualizacion', 'children'),    
     Input('url', 'pathname'))
 def display_page(relative_pathname):
     texto = 'Última Actualización {}'.format(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
