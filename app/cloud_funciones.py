@@ -121,7 +121,7 @@ def get_data_daily(ticker):
     return stock_data
 
 
-def get_data_table(tabla, campos = [], condiciones = [], texto = ''):
+def get_data_table(tabla, campos = [], condiciones = [], texto = 'na'):
     conexion = mysql.connector.connect(
         host="bycegytc3os0kmsrpu4c-mysql.services.clever-cloud.com",
         user="uh4br2tei7wx6fvf",
@@ -129,6 +129,8 @@ def get_data_table(tabla, campos = [], condiciones = [], texto = ''):
         database="bycegytc3os0kmsrpu4c",
     )
     cursor = conexion.cursor()
+    if texto != 'na':
+        print('entro a la conexión')        
     if len(campos) == 0:
         sentencia = 'SELECT * FROM ' + tabla
         cursor.execute(sentencia)
@@ -144,10 +146,7 @@ def get_data_table(tabla, campos = [], condiciones = [], texto = ''):
     if resultados.shape[0]>0:
         nom_col = get_nom_columns(tabla)
         resultados.columns = nom_col
-    conexion.close()
-    if texto != '':
-        print(resultados.columns)
-        print(resultados)
+    conexion.close()    
     return resultados
 
 def update_crypto_values_history():
@@ -172,8 +171,7 @@ def update_crypto_values_day():
         ticker = criptos['ticker'].loc[i]
         data  = get_data_daily(ticker)
         data['Date'] = data['Date'].apply(lambda x: x.strftime('%Y-%m-%d') )
-        data['Time'] = data['Time'].apply(lambda x: x.strftime('%H:%M:%S') )
-        print(data)
+        data['Time'] = data['Time'].apply(lambda x: x.strftime('%H:%M:%S') )        
         datos = get_data_table('criptomonedas_day', campos = ['ticker'], condiciones = [ticker])
         if datos.shape[0]==0:
             cargar_datos('criptomonedas_day', data)
