@@ -164,8 +164,7 @@ def update_crypto_values_history():
             data = get_data(ticker, start_date = start_date, end_date = '')
             if data.shape[0]>0:
                 data['Date'] = data['Date'].apply(lambda x: x.strftime('%Y-%m-%d') )                
-                cargar_datos('criptomonedas_hystory', data)
-                print(data)
+                cargar_datos('criptomonedas_hystory', data)               
 
 def update_crypto_values_day():
     criptos = get_data_table('cat_criptomonedas')
@@ -179,10 +178,10 @@ def update_crypto_values_day():
             cargar_datos('criptomonedas_day', data)
         else:
             fecha = datos['Date'].max()
-            if datetime.datetime.strptime(fecha, '%Y-%m-%d' ).date() != datetime.date.today():
-                #print('entro')
+            if datetime.datetime.strptime(fecha, '%Y-%m-%d' ).date() != datetime.date.today():                
                 borrar('criptomonedas_day')
             cargar_datos('criptomonedas_day', data)
+            
 
         data_history = data.drop(columns = ['Time'])
         if data_history.shape[0]>0:
