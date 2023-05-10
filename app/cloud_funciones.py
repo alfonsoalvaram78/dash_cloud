@@ -173,6 +173,7 @@ def update_crypto_values_day():
         data  = get_data_daily(ticker)
         data['Date'] = data['Date'].apply(lambda x: x.strftime('%Y-%m-%d') )
         data['Time'] = data['Time'].apply(lambda x: x.strftime('%H:%M:%S') )
+        print(data)
         datos = get_data_table('criptomonedas_day', campos = ['ticker'], condiciones = [ticker])
         if datos.shape[0]==0:
             cargar_datos('criptomonedas_day', data)
